@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cloudflare-inspired color palette */
+    --background: 210 20% 98%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    /* Cloudflare Orange */
+    --primary: 27 92% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 20% 10%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 20% 10%;
+
+    /* Semantic colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    /* Dark Navy for headers */
+    --navy: 220 26% 14%;
+    --navy-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 27 92% 54%;
+
+    --radius: 0.5rem;
+
+    /* Chart colors */
+    --chart-positive: 160 84% 39%;
+    --chart-neutral: 38 92% 50%;
+    --chart-negative: 0 84% 60%;
+    --chart-orange: 27 92% 54%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 27 92% 54%;
+  }
+
+  .dark {
+    --background: 220 26% 14%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 26% 18%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 26% 18%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 27 92% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 26% 22%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 26% 22%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 220 26% 22%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    --navy: 220 26% 10%;
+    --navy-foreground: 0 0% 100%;
+
+    --border: 220 26% 22%;
+    --input: 220 26% 22%;
+    --ring: 27 92% 54%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 27 92% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+}
+
+@layer components {
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-colors;
+  }
+
+  .btn-outline {
+    @apply border border-border bg-transparent hover:bg-accent transition-colors;
+  }
+
+  .tab-active {
+    @apply text-primary border-b-2 border-primary;
+  }
+
+  .filter-pill {
+    @apply px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer;
+  }
+
+  .filter-pill-active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .filter-pill-inactive {
+    @apply bg-white border border-border text-muted-foreground hover:border-primary/50;
+  }
+
+  .skeleton-loading {
+    @apply animate-pulse bg-gradient-to-r from-muted to-muted/50;
+  }
+
+  .toast-enter {
+    @apply animate-in slide-in-from-right-full duration-300;
+  }
+
+  .severity-critical {
+    @apply border-l-4 border-l-destructive;
+  }
+
+  .severity-high {
+    @apply border-l-4 border-l-primary;
+  }
+
+  .severity-medium {
+    @apply border-l-4 border-l-warning;
+  }
+
+  .sentiment-positive {
+    @apply bg-success/10 text-success;
+  }
+
+  .sentiment-neutral {
+    @apply bg-warning/10 text-warning;
+  }
+
+  .sentiment-negative {
+    @apply bg-destructive/10 text-destructive;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

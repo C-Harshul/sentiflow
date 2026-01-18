@@ -1,0 +1,25 @@
+name = "sentiflow-workers-backend"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+
+# Workers AI binding for LangChain integration
+[ai]
+binding = "AI"
+
+# D1 database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "sentiflow-db"
+database_id = "4509f922-b226-4a21-b7d3-6e15f5872797"
+
+# KV namespace binding for caching (optional - currently not used, commented out)
+# [[kv_namespaces]]
+# binding = "CACHE"
+# id = "your-kv-namespace-id-here"
+# preview_id = "your-preview-kv-namespace-id-here"
+
+# Environment variables for Cloudflare Workers AI REST API
+[vars]
+ENVIRONMENT = "production"
+CLOUDFLARE_ACCOUNT_ID = "f19886574afd0982d98803891399f1f8"
+CLOUDFLARE_API_TOKEN = "eM-OB_IP2JP47ENW-vjNCWfP4zKQUCaJqPqdKL0C"
